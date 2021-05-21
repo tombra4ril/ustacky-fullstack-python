@@ -1,0 +1,87 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 45px;
+}
+nav.navbar{
+  background-color: #34325E;
+}
+a.navbar-brand{
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+a.navbar-brand img{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+}
+.footer {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: #343252;
+  color: #9d9d9d;
+}
+.footer p{
+  margin-top: 15px;
+}
+footer.footer, nav.navbar{
+  font-family: monospace;
+}
+
+/* Modal css styling */
+#modal{
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  z-index: 10;
+  top: 70px;
+  right: -100%;
+  border-radius: 10px;
+  transition: all 1s linear;
+}
+#modal .modal-content{
+  /* background-color: rgba(156, 47, 47, 0.9); */
+  background-color: rgba(158, 57, 46, 1);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#modal .modal-content p{
+  padding: 10px 20px;
+  margin: 0;
+  font-size: 20px;
+  color: rgba(220, 220, 220, 0.8);
+}
+#modal .modal-close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px;
+  line-height: 20px;
+  color: rgba(200, 200, 200, 0.9);
+}
+#modal.show{
+  transition: all 1s linear;
+  right: 10px;
+}

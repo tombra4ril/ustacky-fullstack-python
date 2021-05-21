@@ -1,0 +1,12 @@
+click==8.0.0
+colorama==0.4.4
+Flask==2.0.0
+Flask-MySQL==1.5.2
+itsdangerous==2.0.0
+Jinja2==3.0.0
+livereload==2.6.3
+MarkupSafe==2.0.0
+PyMySQL==1.0.2
+six==1.16.0
+tornado==6.1
+Werkzeug==2.0.0

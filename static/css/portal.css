@@ -1,0 +1,80 @@
+.student-portal{
+  background-color: #d2e2f0;
+  padding: 20px 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.student-portal *{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.student-portal h2{
+  background-color: #343252;
+  color: white;
+  padding: 10px 0;
+}
+.student-portal h1{
+  margin-bottom: 20px;
+  text-align: center;
+}
+.student-portal h3{
+  font-style: italic;
+  color: #FF9A3D;
+}
+.form-div{
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.form-div.file-div{
+  flex-direction: column;
+}
+.file-div{
+  width: 47.5%;
+}
+.form-div > div > label, .form-div > div > input, .form-div > div > textarea, .form-div > div > select{
+  display: block;
+  width: 100%;
+}
+.form-div input, .form-div textarea, .form-div select, .form-div option{
+  background-color: white;
+  padding: 5px 5px;
+  outline: none;
+  border: none;
+}
+.form-div > div{
+  width: 100%;
+  align-self: flex-end;
+}
+.form-div > div.phone{
+  align-self: flex-start;
+}
+.form-div textarea{
+  resize: none;
+}
+.form-div > div:first-child{
+  margin-right: 5%;
+}
+.form-div > div span:last-child{
+  margin-left: 10px;
+}
+.submit-div{
+  text-align: center;
+}
+.student-portal button{
+  color: white;
+  background-color: #343252;
+  padding: 10px 10px;
+  display: inline-block;
+  width: 33.3%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+.flash-success{
+  color: green;
+}
+.flash-error{
+  color: red;
+}

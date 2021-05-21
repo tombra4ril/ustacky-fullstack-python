@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+  {% block title %}
+    <title>Portal - Portal</title>
+  {% endblock %}
+
+  {% block styles %}
+    <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" />
+  {% endblock %}
+
+  {% block content %}
+    <div class="intro-section">
+      <div class="intro-text">
+        <h1>Student Main Portal</h1>
+        <p>Ustacky Student Portal registration, join us today for your online courses</p>
+        <span><a href="{{url_for('portal')}}">Get Started</a></span>
+      </div>
+      <div class="intro-img">
+        <img src="{{ url_for('static', filename='images/homepage.svg') }}" alt="" />
+      </div>
+    </div>
+  {% endblock %}

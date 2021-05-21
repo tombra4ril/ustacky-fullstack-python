@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+  {% block title %}
+    <title>Portal - Portal</title>
+  {% endblock %}
+
+  {% block styles %}
+    <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/portal.css') }}" rel="stylesheet" />
+  {% endblock %}
+
+  {% block content %}
+    <div class="student-portal">
+      <form action="javascript:0" method="POST" enctype="multipart/form-data">
+        <h1>Student Portal Form</h1>
+        <h3>Please fill in all required information</h3>
+        <h2>Personal Infromation</h2>
+        <div class="form-div file-div">
+          <label>Upload Image:</label>
+          <input type="file" name="image" accept="image/*" />
+        </div>
+
+        <div class="form-div">
+          <div>
+            <label>FirstName</label>
+            <input type="text" name="firstname" placeholder="Enter First Name" required />
+          </div>
+          <div>
+            <label>MiddleName</label>
+            <input type="text" name="middlename" placeholder="Enter middle Name" />
+          </div>
+        </div>
+
+        <div class="form-div">
+          <div>
+            <label>LastName</label>
+            <input type="text" name="lastname" placeholder="Enter Last Name" required />
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter Email Address" required />
+          </div>
+        </div>
+
+        <div class="form-div">
+          <div>
+            <label>Date of Birth</label>
+            <input type="date" name="dob" min="1900-01-01" placeholder="Enter Date of Birth"  required />
+          </div>
+          <div>
+            <span>
+              <label>Male</label>
+              <input type="radio" name="gender" value="M" />
+            </span>
+            <span>
+              <label>Female</label>
+              <input type="radio" name="gender" value="F" />
+            </span>
+          </div>
+        </div>
+
+        <div class="form-div">
+          <div class="phone">
+            <label>Phone Number</label>
+            <input type="tel" name="phonenumber" placeholder="Enter PhoneNumber" required />
+          </div>
+          <div>
+            <label>Address</label>
+            <textarea name ="address" required rows="4" placeholder="Enter Address"></textarea>
+          </div>
+        </div>
+
+        <div class="form-div">
+          <div>
+            <label>State of Origin</label>
+            <select name="state" id="state">
+              <option value="select-state" disabled>Select-State</option>
+            </select>
+          </div>
+          <div>
+            <label>Local Government</label>
+            <select name="lga" id="lga">
+              <option disabled selected>Select-Local-Government</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-div file-div">
+          <label>Next of Kin</label>
+          <input type="text" name="kin" required placeholder="Enter The Name of NextOfKin" />
+        </div>
+
+        <h2>Academic Personal Infromation</h2>
+        
+        <div class="form-div file-div">
+          <label>Jamb Score</label>
+          <input id="jamb" name="jamb" type="number" min="0" max="400" required placeholder="Enter Jamb Score" />
+        </div>
+
+        <div class="submit-div"><button type="submit">Submit</button></div>
+      </form>
+    </div>
+  {% endblock %}
+
+  {% block scripts %}
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/portal.js') }}"></script>
+  {% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+  {% block title %}
+    <title>Portal - Student's Profile</title>
+  {% endblock %}
+
+  {% block styles %}
+    <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/details.css') }}" rel="stylesheet" />
+  {% endblock %}
+
+  {% block content %}
+    <div class="student-wrapper">
+      <div class="student-details">
+        <div class="student-header">
+          <div><img src="{{ url_for('static', filename='uploads/' + response['student']['image']) }}" alt="Profile Logo" /></div>
+          <div><span>{{ response["student"]["lastname"] | capitalize }} {{ response["student"]["firstname"] }}</span></div>
+          <div><span>{{ response["student"]["status"] }}</span></div>
+        </div>
+
+        <div class="student-content">
+          <h1>Personal Information</h1>
+          <p><span>Email: </span><span>{{ response["student"]["email"] }}</span></p>
+          <p><span>Gender: </span><span>{{ response["student"]["gender"] }}</span></p>
+          <p><span>Phone Number: </span><span>{{ response["student"]["phonenumber"] }}</span></p>
+          <p><span>Date Of Birth: </span><span>{{ response["student"]["dob"] }}</span></p>
+          <p><span>Address: </span><span>{{ response["student"]["address"] }}</span></p>
+        </div>
+      </div>
+    
+      <div class="other-details">
+        <div class="other-info">
+          <h2>Other Information</h2>
+          <div class="origin">
+            <div>
+              <span>State Of Origin: {{ response["student"]["state"] }}</span>
+            </div>
+            <div>
+              <span>Local Govt: {{ response["student"]["lga"] }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="academic-info">
+          <h2>Academice Related Information</h2>
+          <div class="acad-details">
+            <div>
+              <span>Next Of Kin: {{ response["student"]["kin"] }}</span>
+            </div>
+            <div>
+              <span>Jamb Score: {{ response["student"]["jamb"] }}</span>
+            </div>
+            <div>
+              <span>Status: {{ response["student"]["status"] }}</span>
+            </div>
+            <div>
+              <span>Change Status:</span>
+              <select id="status" data="{{ response['student']['id'] }}" name="status">
+                <option selected disabled>Change Status</option>
+                <option value="admitted">admitted</option>
+                <option value="undecided">undecided</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block scripts %}
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/details.js') }}"></script>
+  {% endblock %}

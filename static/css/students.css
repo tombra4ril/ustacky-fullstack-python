@@ -1,0 +1,62 @@
+.students-records{
+  max-width: 1200px;
+  margin: 20px auto;
+}
+.info-div {
+  padding: 20px 10px;
+  background-color: #d2e2f0;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.info-div p{
+  margin: 0;
+  color: #343252;
+}
+.info-div span{
+  color: #050515;
+  font-weight: bold;
+}
+.records{
+  padding: 0 10px;
+}
+#search-div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#search-div input, #search-div select, #search-div button{
+  box-sizing: border-box;
+  padding: 5px;
+  display: inline-block;
+  height: 30px;
+  margin-bottom: 10px;
+  outline: none;
+}
+#search-div button{
+  width: 100px;
+  background-color: rgba(4, 66, 153, 0.838);
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+.records-content table{
+  border-top: 5px solid rgba(4, 66, 153, 0.8);
+  border-bottom: 5px solid rgba(4, 66, 153, 0.8);
+  width: 100%;
+}
+thead, tbody, tr{
+  width: 100%;
+  justify-content: space-between;
+}
+tr, th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 10px 5px;
+}
+tbody tr:nth-child(odd){
+  background-color: #eeeeee;
+}
+td span.details{
+  cursor: pointer;
+}

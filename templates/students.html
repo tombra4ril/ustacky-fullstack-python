@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+  {% block title %}
+    <title>Portal - Dashboard</title>
+  {% endblock %}
+
+  {% block styles %}
+    <link href="{{ url_for('static', filename='css/all.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/students.css') }}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  {% endblock %}
+
+  {% block content %}
+    <div class="students-records">
+      <div class="info-div">
+        <p><span>Info!</span> All students records table</p>
+      </div>
+
+      <div class="records">
+        <div class="records-header">
+          <div class="records-input">
+            <div id="search-div">
+              <input type="text" name="name" placeholder="Search Record By Name Only" />
+              <select name="status">
+                <option>Select-Admission Status</option>
+              </select>
+              <select name="gender">
+                <option>Select-Gender</option>
+              </select>
+              <input type="text" name="name" placeholder="Enter Jamb Score" />
+              <button type="button">Search</button>
+            </div>
+
+            <div class="records-content">
+              <table>
+                <thead>
+                  <tr>
+                    <th>S/N</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Jamb Score</th>
+                    <th>Admission Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for student in response["students"] %}
+                    <tr>
+                      <td>{{ loop.index }}</td>
+                      <td>{{ student["lastname"] | capitalize }} {{ student["middlename"] | capitalize }} {{ student["firstname"] | capitalize }}</td>
+                      <td>{{ student["gender"] }}</td>
+                      <td>{{ student["jamb"] }}</td>
+                      <td>{{ student["status"] }}</td>
+                      <td><span id="{{ student['id'] }}" class="material-icons details">pending</span></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block scripts %}
+    <script src="{{ url_for('static', filename='js/students.js') }}"></script>
+  {% endblock %}
