@@ -5,21 +5,18 @@ import pymysql.cursors
 import json
 import os
 from colorama import init, Fore, Back, Style
-
-# flash constants
-flash_success = "flash-success"
-flash_error = "flash-error"
+from decouple import config
 
 # initialize the flask app
 app = Flask(__name__)
 
 # flask app configuration
-app.secret_key = "secret"
-app.config["MYSQL_DATABASE_HOST"] = "localhost"
-app.config["MYSQL_DATABASE_DB"] = "fullstack_project"
-app.config["MYSQL_DATABASE_USER"] = "root"
-app.config["MYSQL_DATABASE_PORT"] = 3306
-app.config["MYSQL_DATABASE_PASSWORD"] = "tombra4ril"
+app.secret_key = config("SECRET_KEY")
+app.config["MYSQL_DATABASE_HOST"] = config("DB_HOST", default="localhost")
+app.config["MYSQL_DATABASE_DB"] = config("DB_NAME")
+app.config["MYSQL_DATABASE_USER"] = config("DB_USER")
+app.config["MYSQL_DATABASE_PORT"] = config("DB_PORT", cast=int)
+app.config["MYSQL_DATABASE_PASSWORD"] = config("DB_PASSWORD")
 
 # use a dictionary cursor object
 mysql = MySQL(app, cursorclass = pymysql.cursors.DictCursor)
@@ -164,11 +161,17 @@ def change_status(id):
         "message": message
         })
 
-def show_flash(message, cat_operation):
-  flash(message, cat_operation)
-
 if __name__ == "__main__":
-  init() # initialize colorama
-  app.debug = True
-  server = Server(app.wsgi_app)
-  server.serve()
+  init()
+  mode = config("DEBUB", default=True, cast=bool)
+  try:
+    if mode:
+      app.run()
+    else:
+      init() # initialize colorama
+      # app.run(debug = True, port = 5500)
+      app.debug = True
+      server = Server(app.wsgi_app)
+      server.serve()
+  except Exception:
+    print(f"{Back.RED}Could not determine if in production of development machine!")
