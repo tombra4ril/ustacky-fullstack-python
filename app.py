@@ -52,12 +52,54 @@ def details(id):
 def portal():
   return render_template("portal.html")
 
+# @app.route("/admin/dashboard/")
+# def students():
+#   # get students records
+#   connection = mysql.get_db()
+#   cursor = connection.cursor()
+#   cursor.execute("select * from students")
+#   cursor_output = cursor.fetchall()
+#   connection.close()
+#   response = {"students": cursor_output}
+#   return render_template("students.html", response = response)
+
 @app.route("/admin/dashboard/")
 def students():
+  # get the query parameters
+  try:
+    name = request.args.get("name")
+    status = request.args.get("status")
+    gender = request.args.get("gender")
+    jamb = request.args.get("jamb")
+  except Exception:
+    print(f"Some values were not supplied in the query!")
+  finally:
+    if gender is not None:
+      if gender.lower() == "male":
+        gender = "M"
+    elif gender is not None:
+      if gender.lower() == "female":
+        gender = "F"
+    else:
+      gender = ""
+    # check if any value was not provided
+    if name is None:
+      name = ""
+    if status is None:
+      status = ""
+    if gender is None:
+      gender = ""
+    if jamb is None:
+      jamb = ""
+    # concatenate the column values with wildcards for search
+    name = "%" + name + "%"
+    status = "%" + status + "%"
+    gender = "%" + gender + "%"
+
   # get students records
   connection = mysql.get_db()
   cursor = connection.cursor()
-  cursor.execute("select * from students")
+  cursor.execute("select * from students where (firstname like %s  or lastname like %s or middlename like %s) and status like %s and gender like %s and jamb >= %s", (name, name, name, status, gender, jamb))
   cursor_output = cursor.fetchall()
   connection.close()
   response = {"students": cursor_output}

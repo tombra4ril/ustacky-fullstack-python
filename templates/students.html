@@ -19,17 +19,21 @@
       <div class="records">
         <div class="records-header">
           <div class="records-input">
-            <div id="search-div">
+            <form action="javascript:0" id="search-div">
               <input type="text" name="name" placeholder="Search Record By Name Only" />
               <select name="status">
-                <option>Select-Admission Status</option>
+                <option value="" selected disabled>Select-Admission Status</option>
+                <option value="admitted">admitted</option>
+                <option value="undecided">undecided</option>
               </select>
               <select name="gender">
-                <option>Select-Gender</option>
+                <option value="" selected disabled>Select-Gender</option>
+                <option value="m">Male</option>
+                <option value="f">Female</option>
               </select>
-              <input type="text" name="name" placeholder="Enter Jamb Score" />
-              <button type="button">Search</button>
-            </div>
+              <input type="text" name="jamb" placeholder="Enter Jamb Score" />
+              <button name="search" type="submit">Search</button>
+            </form>
 
             <div class="records-content">
               <table>
