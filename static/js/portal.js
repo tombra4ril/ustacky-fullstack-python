@@ -28,7 +28,7 @@ const portal = (() => {
     })
     .then(response => response.json())
     .then(data => {
-      if(data["status"] === "succes"){
+      if(data["status"] === "success"){
         window.location.href = "/admin/dashboard/"
       }else{
         console.log(`Failed: ${data["message"]}`)
