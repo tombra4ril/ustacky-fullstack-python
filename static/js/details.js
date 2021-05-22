@@ -22,7 +22,9 @@ const details = (() => {
     .then(response => response.json())
     .then(data => {
       if(data["status"] === "success"){
-        status_element.textContent = body
+        // status_element.textContent = body
+        // refresh page
+        window.location.href = `/admin/students/${id}`
       }else{
         portal_modal["show"]("Failed to Edit Status of User. Try again!")
       }
